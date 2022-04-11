@@ -6,6 +6,7 @@ export default {
     return {
       message: "Welcome to the Movies App!",
       movies: [],
+      newMovieParams: {},
     };
   },
   created: function () {
@@ -14,7 +15,17 @@ export default {
       console.log("All Movies", this.movies);
     });
   },
-  methods: {},
+  methods: {
+    createMovie: function () {
+      console.log("Adding new movie.");
+      axios
+        .post("/movies.json", this.newMovieParams)
+        .then((response) => {
+          console.log("Success", response.data);
+        })
+        .catch((error) => console.log(error.response));
+    },
+  },
 };
 </script>
 
@@ -28,25 +39,25 @@ export default {
       <div>
         <p>
           Title:
-          <input type="text" v-model="newMovie.title" />
+          <input type="text" v-model="newMovieParams.title" />
         </p>
       </div>
       <div>
         <p>
           Year:
-          <input type="text" v-model="newMovie.year" />
+          <input type="text" v-model="newMovieParams.year" />
         </p>
       </div>
       <div>
         <p>
           Plot:
-          <input type="text" v-model="newMovie.plot" />
+          <input type="text" v-model="newMovieParams.plot" />
         </p>
       </div>
       <div>
         <p>
           Director:
-          <input type="text" v-model="newMovie.director" />
+          <input type="text" v-model="newMovieParams.director" />
         </p>
       </div>
     </div>
