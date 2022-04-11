@@ -22,13 +22,41 @@ export default {
   <div class="home">
     <h1>{{ message }}</h1>
 
+    <!-- Create new movie -->
+    <div>
+      <button v-on:click="createMovie()">Add New Movie</button>
+      <div>
+        <p>
+          Title:
+          <input type="text" v-model="newMovie.title" />
+        </p>
+      </div>
+      <div>
+        <p>
+          Year:
+          <input type="text" v-model="newMovie.year" />
+        </p>
+      </div>
+      <div>
+        <p>
+          Plot:
+          <input type="text" v-model="newMovie.plot" />
+        </p>
+      </div>
+      <div>
+        <p>
+          Director:
+          <input type="text" v-model="newMovie.director" />
+        </p>
+      </div>
+    </div>
+
     <!-- Index of Movies -->
     <div v-for="movie in movies" v-bind:key="movie.id">
       <p>Title: {{ movie.title }}</p>
       <p>Year: {{ movie.year }}</p>
       <p>Plot: {{ movie.plot }}</p>
       <p>Director: {{ movie.director }}</p>
-      <p>English: {{ movie.english }}</p>
     </div>
   </div>
 </template>
