@@ -31,6 +31,12 @@ export default {
       this.currentMovie = movie;
       document.querySelector("#movie-details").showModal();
     },
+    updateMovie: function (movie) {
+      var editMovieParams = movie;
+      axios.patch("http://localhost:3000/movies/" + movie.id + ".json", editMovieParams).then((response) => {
+        console.log("Success!", response.data);
+      });
+    },
   },
 };
 </script>
@@ -97,6 +103,7 @@ export default {
           Director:
           <input type="text" v-model="currentMovie.director" />
         </p>
+        <button v-on:click="updateMovie(currentMovie)">Update</button>
         <button>Close</button>
       </form>
     </dialog>
