@@ -22,7 +22,8 @@ export default {
   <div v-for="movie in movies" v-bind:key="movie.id">
     <p>Title: {{ movie.title }}</p>
     <p>Year: {{ movie.year }}</p>
-    <p>Director: {{ movie.director }}</p>
-    <p>Plot: {{ movie.plot }}</p>
+    <!-- <p>Director: {{ movie.director }}</p>
+    <p>Plot: {{ movie.plot }}</p> -->
+    <a :href="`/movies/${movie.id}`">More Info</a>
   </div>
 </template>
