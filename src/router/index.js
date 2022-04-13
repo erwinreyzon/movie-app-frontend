@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import MoviesIndex from "../views/MoviesIndex.vue";
 import MoviesNew from "../views/MoviesNew.vue";
 import MovieShow from "../views/MovieShow.vue";
+import MovieUpdate from "../views/MovieUpdate.vue";
 
 const routes = [
   {
@@ -24,7 +25,7 @@ const routes = [
     component: MoviesIndex,
   },
   {
-    path: "/new",
+    path: "/movies/new",
     name: "new",
     component: MoviesNew,
   },
@@ -32,6 +33,11 @@ const routes = [
     path: "/movies/:id",
     name: "movie",
     component: MovieShow,
+  },
+  {
+    path: "/movies/:id/edit",
+    name: "updaate",
+    component: MovieUpdate,
   },
 ];
 

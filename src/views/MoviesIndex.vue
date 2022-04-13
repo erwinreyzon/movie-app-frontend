@@ -25,5 +25,7 @@ export default {
     <!-- <p>Director: {{ movie.director }}</p>
     <p>Plot: {{ movie.plot }}</p> -->
     <a :href="`/movies/${movie.id}`">More Info</a>
+    <br />
+    <a :href="`/movies/${movie.id}/edit`">Edit</a>
   </div>
 </template>
