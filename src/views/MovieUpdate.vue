@@ -16,6 +16,12 @@ export default {
         this.$router.push("/movies");
       });
     },
+    destroyMovie: function () {
+      axios.delete("http://localhost:3000/movies/" + this.$route.params.id + ".json").then((response) => {
+        console.log("Deleted", response.data);
+        this.$router.push("/movies");
+      });
+    },
   },
   created: function () {
     axios
@@ -31,6 +37,10 @@ export default {
 
 <template>
   <h1>{{ message }}</h1>
+  <p>Title:{{ movie.title }}</p>
+  <p>Year:{{ movie.year }}</p>
+  <p>Plot:{{ movie.plot }}</p>
+  <p>Director:{{ movie.director }}</p>
   <p>
     Title:
     <input type="text" v-model="movie.title" />
@@ -48,4 +58,6 @@ export default {
     <input type="text" v-model="movie.director" />
   </p>
   <button v-on:click="updateMovie()">Update</button>
+  <br />
+  <button v-on:click="destroyMovie()">Destroy</button>
 </template>
