@@ -5,7 +5,7 @@ export default {
   data: function () {
     return {
       message: "Add New Movie",
-      newMovieParams: {},
+      newMovieParams: { plot: "" },
       errors: [],
     };
   },
@@ -44,6 +44,7 @@ export default {
       <p>
         Plot:
         <input type="text" v-model="newMovieParams.plot" />
+        <small>{{ 500 - newMovieParams.plot.length }} CHARACTERS REMAINING</small>
       </p>
     </div>
     <div>
